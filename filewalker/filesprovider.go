@@ -21,6 +21,7 @@ func (DefaultdirReader) ReadDir(path string) ([]os.FileInfo, error) {
 //filesProvider determines the order of files to return.
 //default implementation return inorder sequence of files
 type filesProvider interface {
+	//Next will provide file only after the Init have been called
 	Init(dirPath string, dirReaderImpl ...interface{}) error
 
 	Next() (*FileInfoWrapper, error)
