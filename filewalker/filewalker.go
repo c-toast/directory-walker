@@ -16,17 +16,17 @@ type fileHandler interface {
 }
 
 type FileInfoWrapper struct {
-	info os.FileInfo
+	Info os.FileInfo
 
 	FileName string
 
-	isDir bool
-	//only when the file is not dir, basePath is meaningful
-	basePath string
+	IsDir bool
+	//only when the file is not dir, BasePath is meaningful
+	BasePath string
 
-	fullPath string
+	FullPath string
 
-	ext string
+	Ext string
 }
 
 type directoryWalker struct {
@@ -41,12 +41,12 @@ type directoryWalker struct {
 }
 
 func (w *FileInfoWrapper) init(basePath string, info os.FileInfo) {
-	w.info = info
-	w.isDir = info.IsDir()
-	if !w.isDir {
-		w.basePath = basePath
-		w.fullPath = filepath.Join(basePath, info.Name())
-		w.ext = filepath.Ext(info.Name())
+	w.Info = info
+	w.IsDir = info.IsDir()
+	if !w.IsDir {
+		w.BasePath = basePath
+		w.FullPath = filepath.Join(basePath, info.Name())
+		w.Ext = filepath.Ext(info.Name())
 	}
 	w.FileName = info.Name()
 }
