@@ -1,2 +1,3 @@
 # directory-walker
-a directory walker implemented with observer pattern. while walking the files in the directory, each Handler that have been register will be invoked to handle the files
+a directory walker implemented with observer pattern. 
+while walking the files in the directory, each Handlers that have been registered will be invoked to handle the files
